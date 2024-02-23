@@ -3064,7 +3064,7 @@
                     console.log(`[${userFleets[i].label}] Undocking`);
                     userFleets[i].state = 'Undocking';
                     await execUndock(userFleets[i], userFleets[i].starbaseCoord);
-                    await wait(2000);
+                    await wait(140000);//modifica
                 }
                 updateAssistStatus(userFleets[i]);
                 userFleets[i].moveTarget = userFleets[i].destCoord;
@@ -3235,7 +3235,7 @@
                     console.log(`[${userFleets[i].label}] Undocking`);
                     userFleets[i].state = 'Undocking';
                     await execUndock(userFleets[i], userFleets[i].destCoord);
-                    await wait(2000);
+                    await wait(140000);//modifica
                 }
                 updateAssistStatus(userFleets[i]);
                 userFleets[i].moveTarget = userFleets[i].starbaseCoord;
@@ -3243,17 +3243,17 @@
             if (errorResource.length > 0) {
                 userFleets[i].state = `ERROR: Not enough ${errorResource.toString()}`;
             } else {
-                if (userFleets[i].moveTarget !== '') {
+                //if (userFleets[i].moveTarget !== '') {
                     let targetX = userFleets[i].moveTarget.split(',').length > 1 ? userFleets[i].moveTarget.split(',')[0].trim() : '';
                     let targetY = userFleets[i].moveTarget.split(',').length > 1 ? userFleets[i].moveTarget.split(',')[1].trim() : '';
                     moveDist = calculateMovementDistance(fleetCoords, [targetX,targetY]);
                     console.log(`[${userFleets[i].label}] Debug - moveTarget: ${userFleets[i].moveTarget}, moveDist: ${moveDist}, targetX: ${targetX}, targetY: ${targetY}`);
                     let warpCooldownFinished = await handleMovement(i, moveDist, targetX, targetY);
-                } else {
-                    console.log(`[${userFleets[i].label}] Transporting - ERROR: Fleet must start at Target or Starbase`);
-                    userFleets[i].state = 'ERROR: Fleet must start at Target or Starbase';
-                    updateAssistStatus(userFleets[i]);
-                }
+               // } else { modifica
+                   // console.log(`[${userFleets[i].label}] Transporting - ERROR: Fleet must start at Target or Starbase`);
+                   // userFleets[i].state = 'ERROR: Fleet must start at Target or Starbase';
+                   // updateAssistStatus(userFleets[i]);
+              //  }
             }
             updateAssistStatus(userFleets[i]);
         }
