@@ -3064,7 +3064,7 @@
                     console.log(`[${userFleets[i].label}] Undocking`);
                     userFleets[i].state = 'Undocking';
                     await execUndock(userFleets[i], userFleets[i].starbaseCoord);
-                    await wait(200000);//modifica
+                    await wait(220000);//modifica
                 }
                 updateAssistStatus(userFleets[i]);
                 userFleets[i].moveTarget = userFleets[i].destCoord;
@@ -3235,7 +3235,7 @@
                     console.log(`[${userFleets[i].label}] Undocking`);
                     userFleets[i].state = 'Undocking';
                     await execUndock(userFleets[i], userFleets[i].destCoord);
-                    await wait(200000);//modifica
+                    await wait(220000);//modifica
                 }
                 updateAssistStatus(userFleets[i]);
                 userFleets[i].moveTarget = userFleets[i].starbaseCoord;
